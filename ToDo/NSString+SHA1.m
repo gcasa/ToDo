@@ -1,6 +1,5 @@
 //
 //  NSString+SHA1.m
-//  Mosaic eReader
 //
 //  Created by Gregory Casamento on 11/7/10.
 //  Copyright 2010 . All rights reserved.

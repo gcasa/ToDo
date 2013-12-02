@@ -16,6 +16,6 @@
 @dynamic textDescription;
 @dynamic detail;
 @dynamic completed;
-@dynamic user_task;
+@dynamic userId;
 
 @end

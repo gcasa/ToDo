@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface TDRegisterViewController : UIViewController
+{
+    IBOutlet UITextField *firstName;
+    IBOutlet UITextField *middleName;
+    IBOutlet UITextField *lastName;
+    IBOutlet UITextField *userId;
+    IBOutlet UITextField *password;
+    IBOutlet UITextField *confirmPassword;
+}
 
 @end

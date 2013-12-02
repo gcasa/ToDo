@@ -10,4 +10,6 @@
 
 @implementation TDSession
 
+@synthesize user = _user;
+
 @end

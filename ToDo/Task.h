@@ -17,6 +17,6 @@
 @property (nonatomic, retain) NSString * textDescription;
 @property (nonatomic, retain) NSString * detail;
 @property (nonatomic, retain) NSNumber * completed;
-@property (nonatomic, retain) NSManagedObject *user_task;
+@property (nonatomic, retain) NSString * userId;
 
 @end

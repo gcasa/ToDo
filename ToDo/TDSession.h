@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface TDSession : NSObject
+
+@property (strong,nonatomic) User *user;
 
 @end

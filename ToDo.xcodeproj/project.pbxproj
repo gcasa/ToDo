@@ -22,6 +22,15 @@
 		145ACBF7184C88BF00EBAEA8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145ACBDB184C88BF00EBAEA8 /* CoreData.framework */; };
 		145ACBFF184C88BF00EBAEA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 145ACBFD184C88BF00EBAEA8 /* InfoPlist.strings */; };
 		145ACC01184C88BF00EBAEA8 /* ToDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 145ACC00184C88BF00EBAEA8 /* ToDoTests.m */; };
+		148F3074184C954F00CF3FF6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F3073184C954F00CF3FF6 /* Task.m */; };
+		148F3077184C955900CF3FF6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F3076184C955900CF3FF6 /* User.m */; };
+		148F307B184C978200CF3FF6 /* TDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F3079184C978200CF3FF6 /* TDLoginViewController.m */; };
+		148F307C184C978200CF3FF6 /* TDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148F307A184C978200CF3FF6 /* TDLoginViewController.xib */; };
+		148F3081184C9F6000CF3FF6 /* TDRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F307F184C9F6000CF3FF6 /* TDRegisterViewController.m */; };
+		148F3082184C9F6000CF3FF6 /* TDRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148F3080184C9F6000CF3FF6 /* TDRegisterViewController.xib */; };
+		148F3085184CA21000CF3FF6 /* TDSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F3084184CA21000CF3FF6 /* TDSession.m */; };
+		148F308A184CA3E600CF3FF6 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F3089184CA3E600CF3FF6 /* NSDataAdditions.m */; };
+		148F308D184CA3F200CF3FF6 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F308C184CA3F200CF3FF6 /* NSString+SHA1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +62,22 @@
 		145ACBFC184C88BF00EBAEA8 /* ToDoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ToDoTests-Info.plist"; sourceTree = "<group>"; };
 		145ACBFE184C88BF00EBAEA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		145ACC00184C88BF00EBAEA8 /* ToDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoTests.m; sourceTree = "<group>"; };
+		148F3072184C954F00CF3FF6 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		148F3073184C954F00CF3FF6 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		148F3075184C955900CF3FF6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		148F3076184C955900CF3FF6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		148F3078184C978200CF3FF6 /* TDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLoginViewController.h; sourceTree = "<group>"; };
+		148F3079184C978200CF3FF6 /* TDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLoginViewController.m; sourceTree = "<group>"; };
+		148F307A184C978200CF3FF6 /* TDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDLoginViewController.xib; sourceTree = "<group>"; };
+		148F307E184C9F6000CF3FF6 /* TDRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterViewController.h; sourceTree = "<group>"; };
+		148F307F184C9F6000CF3FF6 /* TDRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterViewController.m; sourceTree = "<group>"; };
+		148F3080184C9F6000CF3FF6 /* TDRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDRegisterViewController.xib; sourceTree = "<group>"; };
+		148F3083184CA21000CF3FF6 /* TDSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSession.h; sourceTree = "<group>"; };
+		148F3084184CA21000CF3FF6 /* TDSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSession.m; sourceTree = "<group>"; };
+		148F3088184CA3E600CF3FF6 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		148F3089184CA3E600CF3FF6 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		148F308B184CA3F200CF3FF6 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
+		148F308C184CA3F200CF3FF6 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +140,10 @@
 		145ACBDD184C88BF00EBAEA8 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				148F3087184CA27300CF3FF6 /* Utilities */,
+				148F3086184CA25C00CF3FF6 /* Session */,
+				148F307D184C97F600CF3FF6 /* Controllers */,
+				145ACC0A184C94AE00EBAEA8 /* Entities */,
 				145ACBE6184C88BF00EBAEA8 /* TDAppDelegate.h */,
 				145ACBE7184C88BF00EBAEA8 /* TDAppDelegate.m */,
 				145ACBEC184C88BF00EBAEA8 /* Images.xcassets */,
@@ -151,6 +180,50 @@
 				145ACBFD184C88BF00EBAEA8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		145ACC0A184C94AE00EBAEA8 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				148F3075184C955900CF3FF6 /* User.h */,
+				148F3076184C955900CF3FF6 /* User.m */,
+				148F3072184C954F00CF3FF6 /* Task.h */,
+				148F3073184C954F00CF3FF6 /* Task.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		148F307D184C97F600CF3FF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				148F3078184C978200CF3FF6 /* TDLoginViewController.h */,
+				148F3079184C978200CF3FF6 /* TDLoginViewController.m */,
+				148F307A184C978200CF3FF6 /* TDLoginViewController.xib */,
+				148F307E184C9F6000CF3FF6 /* TDRegisterViewController.h */,
+				148F307F184C9F6000CF3FF6 /* TDRegisterViewController.m */,
+				148F3080184C9F6000CF3FF6 /* TDRegisterViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		148F3086184CA25C00CF3FF6 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				148F3083184CA21000CF3FF6 /* TDSession.h */,
+				148F3084184CA21000CF3FF6 /* TDSession.m */,
+			);
+			name = Session;
+			sourceTree = "<group>";
+		};
+		148F3087184CA27300CF3FF6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				148F308B184CA3F200CF3FF6 /* NSString+SHA1.h */,
+				148F308C184CA3F200CF3FF6 /* NSString+SHA1.m */,
+				148F3088184CA3E600CF3FF6 /* NSDataAdditions.h */,
+				148F3089184CA3E600CF3FF6 /* NSDataAdditions.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +274,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Gregory Casamento";
 				TargetAttributes = {
+					145ACBD1184C88BF00EBAEA8 = {
+						DevelopmentTeam = 7PR8VYH29V;
+					};
 					145ACBF1184C88BF00EBAEA8 = {
 						TestTargetID = 145ACBD1184C88BF00EBAEA8;
 					};
@@ -230,7 +306,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				145ACBE2184C88BF00EBAEA8 /* InfoPlist.strings in Resources */,
+				148F3082184C9F6000CF3FF6 /* TDRegisterViewController.xib in Resources */,
 				145ACBED184C88BF00EBAEA8 /* Images.xcassets in Resources */,
+				148F307C184C978200CF3FF6 /* TDLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148F3077184C955900CF3FF6 /* User.m in Sources */,
+				148F3074184C954F00CF3FF6 /* Task.m in Sources */,
+				148F3085184CA21000CF3FF6 /* TDSession.m in Sources */,
+				148F308A184CA3E600CF3FF6 /* NSDataAdditions.m in Sources */,
+				148F3081184C9F6000CF3FF6 /* TDRegisterViewController.m in Sources */,
 				145ACBE8184C88BF00EBAEA8 /* TDAppDelegate.m in Sources */,
+				148F308D184CA3F200CF3FF6 /* NSString+SHA1.m in Sources */,
 				145ACBEB184C88BF00EBAEA8 /* ToDo.xcdatamodeld in Sources */,
+				148F307B184C978200CF3FF6 /* TDLoginViewController.m in Sources */,
 				145ACBE4184C88BF00EBAEA8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,8 +455,7 @@
 		145ACC05184C88BF00EBAEA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
 				INFOPLIST_FILE = "ToDo/ToDo-Info.plist";
@@ -383,8 +467,7 @@
 		145ACC06184C88BF00EBAEA8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDo/ToDo-Prefix.pch";
 				INFOPLIST_FILE = "ToDo/ToDo-Info.plist";
@@ -454,6 +537,7 @@
 				145ACC06184C88BF00EBAEA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		145ACC07184C88BF00EBAEA8 /* Build configuration list for PBXNativeTarget "ToDoTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +546,7 @@
 				145ACC09184C88BF00EBAEA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

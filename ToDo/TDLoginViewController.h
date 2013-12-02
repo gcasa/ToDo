@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface TDLoginViewController : UIViewController
+{
+    IBOutlet UITextField *userId;
+    IBOutlet UITextField *password;
+}
+
+- (IBAction)login:(id)sender;
+- (IBAction)registerUser:(id)sender;
 
 @end

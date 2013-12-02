@@ -1,6 +1,5 @@
 //
 //  NSData+Additions.m
-//  Mosaic eReader
 //
 //  Created by Gregory Casamento on 11/3/10.
 //  Copyright 2010 . All rights reserved.
@@ -11,11 +10,16 @@
 
 @implementation NSData (NSDataAdditions)
 
-+ (NSData *) base64DataFromString: (NSString *)string {
+/** 
+ * This method is based on code from the web here:
+ * http://stackoverflow.com/questions/12020307/how-to-decode-convert-a-base64-string-to-nsdata
+ */
++ (NSData *) base64DataFromString: (NSString *)string
+{
 	unsigned long ixtext, lentext;
 	unsigned char ch, input[4], output[3];
 	short i, ixinput;
-	Boolean flignore, flendtext = false;
+	Boolean flignore = false, flendtext = false;
 	const char *temporary;
 	NSMutableData *result;
 	
@@ -28,7 +32,8 @@
 	result = [NSMutableData dataWithCapacity: lentext];
 	ixinput = 0;
 	
-	while (true) {
+	while (true)
+    {
 		if (ixtext >= lentext)
 			break;
 		ch = temporary[ixtext++];
@@ -49,11 +54,13 @@
 		else
 			flignore = true;
 		
-		if (!flignore) {
+		if (!flignore)
+        {
 			short ctcharsinput = 3;
 			Boolean flbreak = false;
 			
-			if (flendtext) {
+			if (flendtext)
+            {
 				if (ixinput == 0)
 					break;              
 				if ((ixinput == 1) || (ixinput == 2))
@@ -66,7 +73,8 @@
 			
 			input[ixinput++] = ch;
 			
-			if (ixinput == 4){
+			if (ixinput == 4)
+            {
 				ixinput = 0;
 				output[0] = (input[0] << 2) | ((input[1] & 0x30) >> 4);
 				output[1] = ((input[1] & 0x0F) << 4) | ((input[2] & 0x3C) >> 2);
