@@ -13,6 +13,11 @@
     IBOutlet UIDatePicker *datePicker;
     IBOutlet UITextView   *descriptionText;
     IBOutlet UITextField  *taskName;
-    IBOutlet UITextField  *dateField;
+    IBOutlet UIButton  *dateButton;
 }
+
+- (IBAction)dateSelected:(id)sender;
+- (IBAction)done:(id)sender;
+- (IBAction)dateButtonPressed:(id)sender;
+
 @end

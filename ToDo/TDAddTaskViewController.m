@@ -27,6 +27,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(done:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,9 +40,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (IBAction)done:(id)sender
 {
-    [datePicker setHidden:NO];
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (IBAction)dateSelected:(id)sender
+{
+    [datePicker setHidden:YES];
 }
 
 @end

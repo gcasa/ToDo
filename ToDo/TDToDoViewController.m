@@ -8,6 +8,7 @@
 
 #import "TDToDoViewController.h"
 #import "TDAddTaskViewController.h"
+#import "TDAppDelegate.h"
 
 @interface TDToDoViewController ()
 
@@ -46,6 +47,8 @@
     TDAddTaskViewController *addTaskController = [[TDAddTaskViewController alloc]
                                                   initWithNibName:@"TDAddTaskViewController"
                                                            bundle:nil];
+    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.navigationController presentViewController:addTaskController animated:YES completion:^{}];
 }
 
 @end
