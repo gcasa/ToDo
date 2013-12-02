@@ -262,6 +262,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    TDAddTaskViewController *addTaskController = [[TDAddTaskViewController alloc] initWithNibName:@"TDAddTaskViewController" bundle:nil];
+    
+    NSUInteger kindex = [indexPath indexAtPosition:0];
+    NSUInteger dindex = [indexPath indexAtPosition:1];
+    id key = [keyArray objectAtIndex:kindex];
+    NSArray *detailArray = [taskDictionary objectForKey:key];
+    Task *task = [detailArray objectAtIndex:dindex];
+    
+    addTaskController.currentTask = task;
+    
+    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.navigationController presentViewController:addTaskController
+                                                animated:YES
+                                              completion:^{}];
 }
 @end

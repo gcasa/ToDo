@@ -17,6 +17,8 @@
 
 @implementation TDAddTaskViewController
 
+@synthesize currentTask = _currentTask;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,16 +32,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    if(currentTask == nil)
+    if(self.currentTask == nil)
     {
         priority.text = @"1";
     }
     else
     {
-        priority.text = [[currentTask priority] stringValue];
-        descriptionText.text = [currentTask textDescription];
-        taskName.text = [currentTask detail];
-        datePicker.date = [currentTask date];
+        priority.text = [[self.currentTask priority] stringValue];
+        descriptionText.text = [self.currentTask textDescription];
+        taskName.text = [self.currentTask detail];
+        datePicker.date = [self.currentTask date];
     }
 }
 
@@ -55,10 +57,19 @@
        [descriptionText.text isEqualToString:@""] == NO)
     {
         TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *moc = [delegate managedObjectContext];
-        NSEntityDescription *description = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
-        Task *task = [[Task alloc] initWithEntity:description
-                   insertIntoManagedObjectContext:moc];
+        Task *task = nil;
+        
+        if(self.currentTask)
+        {
+            task = self.currentTask;
+        }
+        else
+        {
+            NSManagedObjectContext *moc = [delegate managedObjectContext];
+            NSEntityDescription *description = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
+            task = [[Task alloc] initWithEntity:description
+                 insertIntoManagedObjectContext:moc];
+        }
         task.detail = taskName.text;
         task.textDescription = descriptionText.text;
         task.date = [[datePicker date] dateWithOutTime];

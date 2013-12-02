@@ -17,9 +17,9 @@
     IBOutlet UITextField *taskName;
     IBOutlet UIStepper *stepper;
     IBOutlet UITextField *priority;
-
-    Task *currentTask;
 }
+
+@property (nonatomic,strong) Task *currentTask;
 
 - (IBAction)dateSelected:(id)sender;
 - (IBAction)donePressed:(id)sender;
