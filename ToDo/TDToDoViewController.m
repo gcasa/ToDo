@@ -7,6 +7,7 @@
 //
 
 #import "TDToDoViewController.h"
+#import "TDAddTaskViewController.h"
 
 @interface TDToDoViewController ()
 
@@ -42,7 +43,9 @@
 
 - (IBAction)addTask:(id)sender
 {
-    
+    TDAddTaskViewController *addTaskController = [[TDAddTaskViewController alloc]
+                                                  initWithNibName:@"TDAddTaskViewController"
+                                                           bundle:nil];
 }
 
 @end

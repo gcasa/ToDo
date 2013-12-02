@@ -45,6 +45,8 @@
 		148F30A9184CDCCA00CF3FF6 /* CheckmarkOff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 148F30A7184CDCCA00CF3FF6 /* CheckmarkOff.jpg */; };
 		148F30AA184CDCCA00CF3FF6 /* CheckmarkOn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 148F30A8184CDCCA00CF3FF6 /* CheckmarkOn.jpg */; };
 		148F30AD184CDDD000CF3FF6 /* TDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F30AC184CDDD000CF3FF6 /* TDCell.m */; };
+		148F30B1184CE6B300CF3FF6 /* TDAddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F30AF184CE6B300CF3FF6 /* TDAddTaskViewController.m */; };
+		148F30B2184CE6B300CF3FF6 /* TDAddTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148F30B0184CE6B300CF3FF6 /* TDAddTaskViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,9 @@
 		148F30A8184CDCCA00CF3FF6 /* CheckmarkOn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CheckmarkOn.jpg; sourceTree = "<group>"; };
 		148F30AB184CDDD000CF3FF6 /* TDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCell.h; sourceTree = "<group>"; };
 		148F30AC184CDDD000CF3FF6 /* TDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCell.m; sourceTree = "<group>"; };
+		148F30AE184CE6B300CF3FF6 /* TDAddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAddTaskViewController.h; sourceTree = "<group>"; };
+		148F30AF184CE6B300CF3FF6 /* TDAddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAddTaskViewController.m; sourceTree = "<group>"; };
+		148F30B0184CE6B300CF3FF6 /* TDAddTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDAddTaskViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +242,9 @@
 				148F308E184CC18A00CF3FF6 /* TDToDoViewController.h */,
 				148F308F184CC18A00CF3FF6 /* TDToDoViewController.m */,
 				148F3090184CC18A00CF3FF6 /* TDToDoViewController.xib */,
+				148F30AE184CE6B300CF3FF6 /* TDAddTaskViewController.h */,
+				148F30AF184CE6B300CF3FF6 /* TDAddTaskViewController.m */,
+				148F30B0184CE6B300CF3FF6 /* TDAddTaskViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148F30B2184CE6B300CF3FF6 /* TDAddTaskViewController.xib in Resources */,
 				145ACBE2184C88BF00EBAEA8 /* InfoPlist.strings in Resources */,
 				148F30A4184CDABF00CF3FF6 /* ToDoCell.xib in Resources */,
 				148F309B184CD88F00CF3FF6 /* ToDoIcon120x120.png in Resources */,
@@ -404,6 +413,7 @@
 			files = (
 				148F3077184C955900CF3FF6 /* User.m in Sources */,
 				148F3074184C954F00CF3FF6 /* Task.m in Sources */,
+				148F30B1184CE6B300CF3FF6 /* TDAddTaskViewController.m in Sources */,
 				148F3085184CA21000CF3FF6 /* TDSession.m in Sources */,
 				148F308A184CA3E600CF3FF6 /* NSDataAdditions.m in Sources */,
 				148F3081184C9F6000CF3FF6 /* TDRegisterViewController.m in Sources */,
