@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDLoginViewController : UIViewController
+@interface TDLoginViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 {
     IBOutlet UITextField *userId;
     IBOutlet UITextField *password;

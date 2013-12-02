@@ -31,6 +31,8 @@
 		148F3085184CA21000CF3FF6 /* TDSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F3084184CA21000CF3FF6 /* TDSession.m */; };
 		148F308A184CA3E600CF3FF6 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F3089184CA3E600CF3FF6 /* NSDataAdditions.m */; };
 		148F308D184CA3F200CF3FF6 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F308C184CA3F200CF3FF6 /* NSString+SHA1.m */; };
+		148F3091184CC18A00CF3FF6 /* TDToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F308F184CC18A00CF3FF6 /* TDToDoViewController.m */; };
+		148F3092184CC18A00CF3FF6 /* TDToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148F3090184CC18A00CF3FF6 /* TDToDoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		148F3089184CA3E600CF3FF6 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		148F308B184CA3F200CF3FF6 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		148F308C184CA3F200CF3FF6 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
+		148F308E184CC18A00CF3FF6 /* TDToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDToDoViewController.h; sourceTree = "<group>"; };
+		148F308F184CC18A00CF3FF6 /* TDToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDToDoViewController.m; sourceTree = "<group>"; };
+		148F3090184CC18A00CF3FF6 /* TDToDoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDToDoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +207,9 @@
 				148F307E184C9F6000CF3FF6 /* TDRegisterViewController.h */,
 				148F307F184C9F6000CF3FF6 /* TDRegisterViewController.m */,
 				148F3080184C9F6000CF3FF6 /* TDRegisterViewController.xib */,
+				148F308E184CC18A00CF3FF6 /* TDToDoViewController.h */,
+				148F308F184CC18A00CF3FF6 /* TDToDoViewController.m */,
+				148F3090184CC18A00CF3FF6 /* TDToDoViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 			files = (
 				145ACBE2184C88BF00EBAEA8 /* InfoPlist.strings in Resources */,
 				148F3082184C9F6000CF3FF6 /* TDRegisterViewController.xib in Resources */,
+				148F3092184CC18A00CF3FF6 /* TDToDoViewController.xib in Resources */,
 				145ACBED184C88BF00EBAEA8 /* Images.xcassets in Resources */,
 				148F307C184C978200CF3FF6 /* TDLoginViewController.xib in Resources */,
 			);
@@ -337,6 +346,7 @@
 				145ACBEB184C88BF00EBAEA8 /* ToDo.xcdatamodeld in Sources */,
 				148F307B184C978200CF3FF6 /* TDLoginViewController.m in Sources */,
 				145ACBE4184C88BF00EBAEA8 /* main.m in Sources */,
+				148F3091184CC18A00CF3FF6 /* TDToDoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

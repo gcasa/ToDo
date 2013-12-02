@@ -14,6 +14,7 @@
 @dynamic firstName;
 @dynamic middleName;
 @dynamic lastName;
-@dynamic userid;
+@dynamic userId;
+@dynamic password;
 
 @end

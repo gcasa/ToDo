@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDRegisterViewController : UIViewController
+@interface TDRegisterViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
 {
     IBOutlet UITextField *firstName;
     IBOutlet UITextField *middleName;
