@@ -20,7 +20,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="closeButton:" destination="UKS-sN-9tp" eventType="touchDown" id="YJd-6b-gjj"/>
+                            <action selector="closeButton:" destination="UKS-sN-9tp" eventType="touchUpInside" id="QyT-rX-8i9"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-kw-qUK">
@@ -30,13 +30,20 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="doneButton:" destination="UKS-sN-9tp" eventType="touchDown" id="qFj-CC-o0v"/>
+                            <action selector="doneButton:" destination="UKS-sN-9tp" eventType="touchUpInside" id="H8H-ws-Vfj"/>
                         </connections>
                     </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKc-oo-w8u">
+                        <rect key="frame" x="20" y="10" width="216" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="closeButton" destination="Mme-nB-riS" id="lFs-cx-RZt"/>
+                <outlet property="detailText" destination="vKc-oo-w8u" id="1CZ-ck-9af"/>
                 <outlet property="doneButton" destination="Yep-kw-qUK" id="Kyb-hf-CzW"/>
             </connections>
         </tableViewCell>

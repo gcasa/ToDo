@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDAddTaskViewController : UIViewController <UITextFieldDelegate>
+@interface TDAddTaskViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
 {
     IBOutlet UIDatePicker *datePicker;
     IBOutlet UITextView   *descriptionText;
     IBOutlet UITextField  *taskName;
-    IBOutlet UIButton  *dateButton;
+    NSDate *date;
 }
 
 - (IBAction)dateSelected:(id)sender;
-- (IBAction)done:(id)sender;
-- (IBAction)dateButtonPressed:(id)sender;
+- (IBAction)donePressed:(id)sender;
 
 @end

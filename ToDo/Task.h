@@ -12,7 +12,7 @@
 
 @interface Task : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * date;
+@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * priority;
 @property (nonatomic, retain) NSString * textDescription;
 @property (nonatomic, retain) NSString * detail;

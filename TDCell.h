@@ -13,6 +13,7 @@
 {
     IBOutlet UIButton *closeButton;
     IBOutlet UIButton *doneButton;
+    IBOutlet UILabel *detailText;
     
     BOOL done;
     Task *task;
