@@ -83,6 +83,13 @@
 		148F308E184CC18A00CF3FF6 /* TDToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDToDoViewController.h; sourceTree = "<group>"; };
 		148F308F184CC18A00CF3FF6 /* TDToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDToDoViewController.m; sourceTree = "<group>"; };
 		148F3090184CC18A00CF3FF6 /* TDToDoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDToDoViewController.xib; sourceTree = "<group>"; };
+		148F3093184CD48E00CF3FF6 /* ToDoIcon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoIcon120x120.png; sourceTree = SOURCE_ROOT; };
+		148F3094184CD4E700CF3FF6 /* ToDoIcon76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoIcon76x76.png; sourceTree = SOURCE_ROOT; };
+		148F3095184CD55500CF3FF6 /* ToDoIcon152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoIcon152x152.png; sourceTree = SOURCE_ROOT; };
+		148F3096184CD5FB00CF3FF6 /* ToDoListsDefault640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoListsDefault640x960.png; sourceTree = SOURCE_ROOT; };
+		148F3097184CD63D00CF3FF6 /* ToDoListsDefault640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoListsDefault640x1136.png; sourceTree = SOURCE_ROOT; };
+		148F3098184CD68F00CF3FF6 /* ToDoListsDefault768x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoListsDefault768x1024.png; sourceTree = SOURCE_ROOT; };
+		148F3099184CD6BC00CF3FF6 /* ToDoListsDefault1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoListsDefault1536x2048.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +152,7 @@
 		145ACBDD184C88BF00EBAEA8 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				148F309A184CD83D00CF3FF6 /* Images */,
 				148F3087184CA27300CF3FF6 /* Utilities */,
 				148F3086184CA25C00CF3FF6 /* Session */,
 				148F307D184C97F600CF3FF6 /* Controllers */,
@@ -232,6 +240,20 @@
 				148F3089184CA3E600CF3FF6 /* NSDataAdditions.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		148F309A184CD83D00CF3FF6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				148F3099184CD6BC00CF3FF6 /* ToDoListsDefault1536x2048.png */,
+				148F3098184CD68F00CF3FF6 /* ToDoListsDefault768x1024.png */,
+				148F3097184CD63D00CF3FF6 /* ToDoListsDefault640x1136.png */,
+				148F3096184CD5FB00CF3FF6 /* ToDoListsDefault640x960.png */,
+				148F3095184CD55500CF3FF6 /* ToDoIcon152x152.png */,
+				148F3094184CD4E700CF3FF6 /* ToDoIcon76x76.png */,
+				148F3093184CD48E00CF3FF6 /* ToDoIcon120x120.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
