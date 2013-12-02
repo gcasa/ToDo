@@ -26,6 +26,11 @@
                                                  selector:@selector(handleNotification:)
                                                      name:@"TDTaskAddedNotification"
                                                    object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleNotification:)
+                                                     name:@"TDTaskRemovedNotification"
+                                                   object:nil];
     }
     return self;
 }

@@ -34,6 +34,12 @@
 - (IBAction)closeButton:(id)sender
 {
     NSLog(@"Close");
+    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *moc = [delegate managedObjectContext];
+    [moc deleteObject:self.task];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TDTaskRemovedNotification"
+                                                        object:nil];
 }
 
 - (IBAction)doneButton:(id)sender
