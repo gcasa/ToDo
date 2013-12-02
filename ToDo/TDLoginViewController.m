@@ -7,6 +7,9 @@
 //
 
 #import "TDLoginViewController.h"
+#import "TDAppDelegate.h"
+#import "TDRegisterViewController.h"
+#import "NSString+SHA1.h"
 
 @interface TDLoginViewController ()
 
@@ -37,12 +40,17 @@
 
 - (IBAction)login:(id)sender
 {
+    NSString *passwordString = [password.text stringByHashingStringWithSHA1];
     
 }
 
 - (IBAction)registerUser:(id)sender
 {
+    TDRegisterViewController *registerController = [[TDRegisterViewController alloc]
+                                                    initWithNibName:@"TDRegisterViewController" bundle:nil];
     
+    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [[delegate navigationController] pushViewController:registerController animated:YES];
 }
 
 @end

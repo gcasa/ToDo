@@ -16,6 +16,10 @@
     IBOutlet UITextField *userId;
     IBOutlet UITextField *password;
     IBOutlet UITextField *confirmPassword;
+    
+    IBOutlet UIButton *registerUser;
 }
+
+- (IBAction)registerUser:(id)sender;
 
 @end
