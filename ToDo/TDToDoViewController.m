@@ -22,6 +22,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleNotification:)
+                                                     name:@"TDTaskAddedNotification"
+                                                   object:nil];
     }
     return self;
 }
@@ -115,10 +119,6 @@
     
     NSError *error = nil;
     taskResults = [moc executeFetchRequest:request error:&error];
-    if([taskResults count] > 0)
-    {
-        NSLog(@"array = %@",taskResults);
-    }
     
     // build dictionary from results
     [self buildDictionary];
@@ -130,6 +130,11 @@
     [tableView reloadData];
 }
 
+- (void)handleNotification:(NSNotification *)notification
+{
+    [self refreshContents];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -139,6 +144,17 @@
                                                                      target:self
                                                                      action:@selector(addTask:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *order = [defaults objectForKey:@"sortOrder"];
+    if(order != nil)
+    {
+        sortOrder.text = order;
+        [self performSelector:@selector(changeSort:)
+                   withObject:nil
+                   afterDelay:(NSTimeInterval)1];
+    }
+    
     [self refreshContents];
 }
 
@@ -153,6 +169,10 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"userId"];
     [defaults removeObjectForKey:@"passwordHash"];
+    [defaults synchronize];
+    
+    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)addTask:(id)sender
@@ -174,6 +194,11 @@
     {
         sortOrder.text = @"Date";
     }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:sortOrder.text
+                 forKey:@"sortOrder"];
+    [defaults synchronize];
     [self refreshContents];
 }
 
@@ -223,6 +248,14 @@
     NSString *returnValue = nil;
     
     returnValue = [NSString stringWithFormat:@"%@",key];
+    if([key isKindOfClass:[NSDate class]])
+    {
+        NSArray *components = [returnValue componentsSeparatedByString:@" "];
+        if([components count] > 0)
+        {
+            returnValue = [components objectAtIndex:0];
+        }
+    }
     
     return returnValue;
 }

@@ -47,6 +47,7 @@
 		148F30AD184CDDD000CF3FF6 /* TDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F30AC184CDDD000CF3FF6 /* TDCell.m */; };
 		148F30B1184CE6B300CF3FF6 /* TDAddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F30AF184CE6B300CF3FF6 /* TDAddTaskViewController.m */; };
 		148F30B2184CE6B300CF3FF6 /* TDAddTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148F30B0184CE6B300CF3FF6 /* TDAddTaskViewController.xib */; };
+		148F30B5184D358200CF3FF6 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F30B4184D358200CF3FF6 /* NSDate+Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		148F30AE184CE6B300CF3FF6 /* TDAddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAddTaskViewController.h; sourceTree = "<group>"; };
 		148F30AF184CE6B300CF3FF6 /* TDAddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAddTaskViewController.m; sourceTree = "<group>"; };
 		148F30B0184CE6B300CF3FF6 /* TDAddTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDAddTaskViewController.xib; sourceTree = "<group>"; };
+		148F30B3184D358200CF3FF6 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		148F30B4184D358200CF3FF6 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +268,8 @@
 				148F308C184CA3F200CF3FF6 /* NSString+SHA1.m */,
 				148F3088184CA3E600CF3FF6 /* NSDataAdditions.h */,
 				148F3089184CA3E600CF3FF6 /* NSDataAdditions.m */,
+				148F30B3184D358200CF3FF6 /* NSDate+Utilities.h */,
+				148F30B4184D358200CF3FF6 /* NSDate+Utilities.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				145ACBE4184C88BF00EBAEA8 /* main.m in Sources */,
 				148F3091184CC18A00CF3FF6 /* TDToDoViewController.m in Sources */,
 				148F30AD184CDDD000CF3FF6 /* TDCell.m in Sources */,
+				148F30B5184D358200CF3FF6 /* NSDate+Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

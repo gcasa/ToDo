@@ -9,6 +9,7 @@
 #import "TDAddTaskViewController.h"
 #import "Task.h"
 #import "TDAppDelegate.h"
+#import "NSDate+Utilities.h"
 
 @interface TDAddTaskViewController ()
 
@@ -60,10 +61,12 @@
                    insertIntoManagedObjectContext:moc];
         task.detail = taskName.text;
         task.textDescription = descriptionText.text;
-        task.date = [datePicker date];
+        task.date = [[datePicker date] dateWithOutTime];
         task.priority = [NSNumber numberWithInt:[priority.text intValue]];
         task.userId = [[[delegate session] user] userId];
         [delegate saveContext];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TDTaskAddedNotification" object:task];
         
         [self dismissViewControllerAnimated:YES completion:^{}];
     }
