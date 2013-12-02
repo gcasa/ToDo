@@ -30,11 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                      style:UIBarButtonItemStylePlain
-                                                                     target:self
-                                                                     action:@selector(done:)];
-    self.navigationItem.rightBarButtonItem = anotherButton;
+    priority.text = @"1";
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,8 +41,6 @@
 
 - (IBAction)donePressed:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{}];
-    
     if([taskName.text isEqualToString:@""] == NO &&
        [descriptionText.text isEqualToString:@""] == NO)
     {
@@ -58,13 +52,21 @@
         task.detail = taskName.text;
         task.textDescription = descriptionText.text;
         task.date = date;
+        task.priority = [NSNumber numberWithInt:[priority.text intValue]];
+        [delegate saveContext];
+        [self dismissViewControllerAnimated:YES completion:^{}];
     }
     else
     {
-        UIAlertView *registerFailedView = [[UIAlertView alloc] initWithTitle:@"User Already Exists" message:@"User already exists, please choose another username." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *registerFailedView = [[UIAlertView alloc] initWithTitle:@"Incomplete Details" message:@"Task detail must include task name and description" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         registerFailedView.delegate = self;
         [registerFailedView show];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    // nothing to do...
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -82,6 +84,18 @@
     [taskName resignFirstResponder];
     [descriptionText resignFirstResponder];
     date = [datePicker date];
+}
+
+- (void)stepperPressed:(id)sender
+{
+    priority.text = [[NSNumber numberWithInt: (int)[stepper value]] stringValue];
+}
+
+- (void)cancelPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                             }];
 }
 
 @end

@@ -11,12 +11,17 @@
 @interface TDAddTaskViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
 {
     IBOutlet UIDatePicker *datePicker;
-    IBOutlet UITextView   *descriptionText;
-    IBOutlet UITextField  *taskName;
+    IBOutlet UITextView *descriptionText;
+    IBOutlet UITextField *taskName;
+    IBOutlet UIStepper *stepper;
+    IBOutlet UITextField *priority;
+
     NSDate *date;
 }
 
 - (IBAction)dateSelected:(id)sender;
 - (IBAction)donePressed:(id)sender;
+- (IBAction)stepperPressed:(id)sender;
+- (IBAction)cancelPressed:(id)sender;
 
 @end
