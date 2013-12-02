@@ -28,27 +28,17 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)authenticateWithUserName:(NSString *)userIdString
+                 andPasswordHash:(NSString *)passwordHash
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)login:(id)sender
-{
-    NSString *passwordHash = [password.text stringByHashingStringWithSHA1];
+    // NSString *passwordHash = [passwordString stringByHashingStringWithSHA1];
     TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *moc = [delegate managedObjectContext];
+    
     NSEntityDescription *description = [NSEntityDescription entityForName:@"User"
                                                    inManagedObjectContext:moc];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(userId = %@ AND password = %@)",
-                              userId.text, passwordHash];
+                              userIdString, passwordHash];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:description];
     [request setPredicate:predicate];
@@ -61,6 +51,12 @@
         delegate.session = [[TDSession alloc] init];
         delegate.session.user = user;
         
+        // Save logged in user...
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:userIdString forKey:@"userId"];
+        [defaults setObject:passwordHash forKey:@"passwordHash"];
+        
+        // Open controller...
         TDToDoViewController *todoViewController = [[TDToDoViewController alloc]
                                                     initWithNibName:@"TDToDoViewController"
                                                     bundle:nil];
@@ -76,6 +72,33 @@
         loginFailedView.delegate = self;
         [loginFailedView show];
     }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Do any additional setup after loading the view from its nib.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *userIdString = [defaults objectForKey:@"userId"];
+    if(userIdString != nil)
+    {
+        NSString *passwordHash = [defaults objectForKey:@"passwordHash"];
+        [self authenticateWithUserName:userIdString andPasswordHash:passwordHash];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)login:(id)sender
+{
+    NSString *passwordHash = [password.text stringByHashingStringWithSHA1];
+    [self authenticateWithUserName:userId.text
+                   andPasswordHash:passwordHash];
 }
 
 - (IBAction)registerUser:(id)sender

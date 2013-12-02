@@ -21,7 +21,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        date = [[NSDate alloc] init];  // today, unless otherwise selected...
     }
     return self;
 }
@@ -30,7 +29,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    priority.text = @"1";
+    if(currentTask == nil)
+    {
+        priority.text = @"1";
+    }
+    else
+    {
+        priority.text = [[currentTask priority] stringValue];
+        descriptionText.text = [currentTask textDescription];
+        taskName.text = [currentTask detail];
+        datePicker.date = [currentTask date];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,9 +60,10 @@
                    insertIntoManagedObjectContext:moc];
         task.detail = taskName.text;
         task.textDescription = descriptionText.text;
-        task.date = date;
+        task.date = [datePicker date];
         task.priority = [NSNumber numberWithInt:[priority.text intValue]];
         [delegate saveContext];
+        
         [self dismissViewControllerAnimated:YES completion:^{}];
     }
     else
@@ -83,12 +93,13 @@
 {
     [taskName resignFirstResponder];
     [descriptionText resignFirstResponder];
-    date = [datePicker date];
 }
 
 - (void)stepperPressed:(id)sender
 {
     priority.text = [[NSNumber numberWithInt: (int)[stepper value]] stringValue];
+    [taskName resignFirstResponder];
+    [descriptionText resignFirstResponder];
 }
 
 - (void)cancelPressed:(id)sender

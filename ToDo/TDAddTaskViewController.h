@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class Task;
+
 @interface TDAddTaskViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIAlertViewDelegate>
 {
     IBOutlet UIDatePicker *datePicker;
@@ -16,7 +18,7 @@
     IBOutlet UIStepper *stepper;
     IBOutlet UITextField *priority;
 
-    NSDate *date;
+    Task *currentTask;
 }
 
 - (IBAction)dateSelected:(id)sender;

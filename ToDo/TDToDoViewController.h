@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDToDoViewController : UIViewController
+@interface TDToDoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *tableView;
     NSMutableArray *taskArray;
 }
+
+- (IBAction)logoutPressed:(id)sender;
 
 @end
