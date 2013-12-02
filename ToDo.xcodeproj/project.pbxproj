@@ -40,6 +40,11 @@
 		148F309F184CD89900CF3FF6 /* ToDoListsDefault640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3097184CD63D00CF3FF6 /* ToDoListsDefault640x1136.png */; };
 		148F30A0184CD89C00CF3FF6 /* ToDoListsDefault768x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3098184CD68F00CF3FF6 /* ToDoListsDefault768x1024.png */; };
 		148F30A1184CD89E00CF3FF6 /* ToDoListsDefault1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3099184CD6BC00CF3FF6 /* ToDoListsDefault1536x2048.png */; };
+		148F30A4184CDABF00CF3FF6 /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148F30A3184CDABF00CF3FF6 /* ToDoCell.xib */; };
+		148F30A6184CDCC400CF3FF6 /* DeleteImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 148F30A5184CDCC400CF3FF6 /* DeleteImage.jpeg */; };
+		148F30A9184CDCCA00CF3FF6 /* CheckmarkOff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 148F30A7184CDCCA00CF3FF6 /* CheckmarkOff.jpg */; };
+		148F30AA184CDCCA00CF3FF6 /* CheckmarkOn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 148F30A8184CDCCA00CF3FF6 /* CheckmarkOn.jpg */; };
+		148F30AD184CDDD000CF3FF6 /* TDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F30AC184CDDD000CF3FF6 /* TDCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +102,12 @@
 		148F3097184CD63D00CF3FF6 /* ToDoListsDefault640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoListsDefault640x1136.png; sourceTree = SOURCE_ROOT; };
 		148F3098184CD68F00CF3FF6 /* ToDoListsDefault768x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoListsDefault768x1024.png; sourceTree = SOURCE_ROOT; };
 		148F3099184CD6BC00CF3FF6 /* ToDoListsDefault1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToDoListsDefault1536x2048.png; sourceTree = SOURCE_ROOT; };
+		148F30A3184CDABF00CF3FF6 /* ToDoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
+		148F30A5184CDCC400CF3FF6 /* DeleteImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DeleteImage.jpeg; sourceTree = "<group>"; };
+		148F30A7184CDCCA00CF3FF6 /* CheckmarkOff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CheckmarkOff.jpg; sourceTree = "<group>"; };
+		148F30A8184CDCCA00CF3FF6 /* CheckmarkOn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CheckmarkOn.jpg; sourceTree = "<group>"; };
+		148F30AB184CDDD000CF3FF6 /* TDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCell.h; sourceTree = "<group>"; };
+		148F30AC184CDDD000CF3FF6 /* TDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +170,7 @@
 		145ACBDD184C88BF00EBAEA8 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				148F30A2184CDA9300CF3FF6 /* Cells */,
 				148F309A184CD83D00CF3FF6 /* Images */,
 				148F3087184CA27300CF3FF6 /* Utilities */,
 				148F3086184CA25C00CF3FF6 /* Session */,
@@ -252,6 +264,9 @@
 		148F309A184CD83D00CF3FF6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				148F30A7184CDCCA00CF3FF6 /* CheckmarkOff.jpg */,
+				148F30A8184CDCCA00CF3FF6 /* CheckmarkOn.jpg */,
+				148F30A5184CDCC400CF3FF6 /* DeleteImage.jpeg */,
 				148F3099184CD6BC00CF3FF6 /* ToDoListsDefault1536x2048.png */,
 				148F3098184CD68F00CF3FF6 /* ToDoListsDefault768x1024.png */,
 				148F3097184CD63D00CF3FF6 /* ToDoListsDefault640x1136.png */,
@@ -261,6 +276,17 @@
 				148F3093184CD48E00CF3FF6 /* ToDoIcon120x120.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		148F30A2184CDA9300CF3FF6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				148F30A3184CDABF00CF3FF6 /* ToDoCell.xib */,
+				148F30AB184CDDD000CF3FF6 /* TDCell.h */,
+				148F30AC184CDDD000CF3FF6 /* TDCell.m */,
+			);
+			name = Cells;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,16 +369,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				145ACBE2184C88BF00EBAEA8 /* InfoPlist.strings in Resources */,
+				148F30A4184CDABF00CF3FF6 /* ToDoCell.xib in Resources */,
 				148F309B184CD88F00CF3FF6 /* ToDoIcon120x120.png in Resources */,
 				148F309F184CD89900CF3FF6 /* ToDoListsDefault640x1136.png in Resources */,
+				148F30AA184CDCCA00CF3FF6 /* CheckmarkOn.jpg in Resources */,
 				148F30A1184CD89E00CF3FF6 /* ToDoListsDefault1536x2048.png in Resources */,
 				148F309C184CD89100CF3FF6 /* ToDoIcon76x76.png in Resources */,
+				148F30A6184CDCC400CF3FF6 /* DeleteImage.jpeg in Resources */,
 				148F30A0184CD89C00CF3FF6 /* ToDoListsDefault768x1024.png in Resources */,
 				148F3082184C9F6000CF3FF6 /* TDRegisterViewController.xib in Resources */,
 				148F3092184CC18A00CF3FF6 /* TDToDoViewController.xib in Resources */,
 				148F309E184CD89600CF3FF6 /* ToDoListsDefault640x960.png in Resources */,
 				148F309D184CD89400CF3FF6 /* ToDoIcon152x152.png in Resources */,
 				145ACBED184C88BF00EBAEA8 /* Images.xcassets in Resources */,
+				148F30A9184CDCCA00CF3FF6 /* CheckmarkOff.jpg in Resources */,
 				148F307C184C978200CF3FF6 /* TDLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +413,7 @@
 				148F307B184C978200CF3FF6 /* TDLoginViewController.m in Sources */,
 				145ACBE4184C88BF00EBAEA8 /* main.m in Sources */,
 				148F3091184CC18A00CF3FF6 /* TDToDoViewController.m in Sources */,
+				148F30AD184CDDD000CF3FF6 /* TDCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
