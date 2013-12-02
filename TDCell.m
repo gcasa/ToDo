@@ -9,23 +9,17 @@
 #import "TDCell.h"
 #import "TDAppDelegate.h"
 
-static UIImage *uncheckedImage = nil;
-static UIImage *checkedImage = nil;
-
 @implementation TDCell
+
+@synthesize detailText = _detailText;
+@synthesize doneButton = _doneButton;
+@synthesize task = _task;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        done = NO;
-        
-        if(uncheckedImage == nil)
-        {
-            uncheckedImage = [UIImage imageNamed:@"CheckmarkOff"];
-            checkedImage = [UIImage imageNamed:@"CheckmarkOn"];
-        }
     }
     return self;
 }
@@ -44,22 +38,35 @@ static UIImage *checkedImage = nil;
 
 - (IBAction)doneButton:(id)sender
 {
-    NSLog(@"Done");
-    if(done)
+    if([self.task.completed boolValue])
     {
-        [doneButton setImage:uncheckedImage
-                    forState:UIControlStateNormal];
-        done = NO;
+        self.task.completed = [NSNumber numberWithBool:NO];
     }
     else
     {
-        [doneButton setImage:checkedImage
-                    forState:UIControlStateNormal];
-        done = YES;
+        self.task.completed = [NSNumber numberWithBool:YES];
     }
-    
-    task.completed = [NSNumber numberWithBool:done];
+    [self resetState];
+
     TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate saveContext];
+}
+
+- (void)resetState
+{
+    if([self.task.completed boolValue])
+    {
+        UIImage *image = [UIImage imageNamed:@"CheckmarkOff.jpg"];
+        [self.doneButton setImage:image
+                         forState:UIControlStateNormal];
+    }
+    else
+    {
+        UIImage *image = [UIImage imageNamed:@"CheckmarkOn.jpg"];
+        [self.doneButton setImage:image
+                         forState:UIControlStateNormal];
+    }
+    
+    self.detailText.text = self.task.detail;
 }
 @end

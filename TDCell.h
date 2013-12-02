@@ -12,14 +12,14 @@
 @interface TDCell : UITableViewCell
 {
     IBOutlet UIButton *closeButton;
-    IBOutlet UIButton *doneButton;
-    IBOutlet UILabel *detailText;
-    
-    BOOL done;
-    Task *task;
 }
+
+@property (nonatomic, strong) IBOutlet UILabel *detailText;
+@property (nonatomic, strong) IBOutlet UIButton *doneButton;
+@property (nonatomic, strong) Task *task;
 
 - (IBAction)closeButton:(id)sender;
 - (IBAction)doneButton:(id)sender;
+- (void)resetState;
 
 @end

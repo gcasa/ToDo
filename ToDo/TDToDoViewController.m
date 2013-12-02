@@ -9,6 +9,7 @@
 #import "TDToDoViewController.h"
 #import "TDAddTaskViewController.h"
 #import "TDAppDelegate.h"
+#import "TDCell.h"
 
 @interface TDToDoViewController ()
 
@@ -25,6 +26,110 @@
     return self;
 }
 
+- (void) buildDictionary
+{
+    // Re-initialize everything...
+    [taskDictionary removeAllObjects];
+    [keyArray removeAllObjects];
+    taskDictionary = [[NSMutableDictionary alloc] initWithCapacity:10];
+    keyArray = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    if([sortOrder.text isEqualToString:@"Priority"])
+    {
+        NSNumber *currentPriority;
+        for(Task *task in taskResults)
+        {
+            NSMutableArray *array = nil;
+            if([currentPriority isEqualToNumber:task.priority])
+            {
+                array = [taskDictionary objectForKey:task.priority];
+
+            }
+            else
+            {
+                array = [[NSMutableArray alloc] initWithCapacity:10];
+                currentPriority = task.priority;
+                [taskDictionary setObject:array forKey:task.priority];
+                [keyArray addObject:task.priority];
+            }
+            [array addObject:task];
+        }
+    }
+    else
+    {
+        NSDate *currentDate;
+        for(Task *task in taskResults)
+        {
+            NSMutableArray *array = nil;
+            if([currentDate isEqualToDate:task.date])
+            {
+                array = [taskDictionary objectForKey:task.date];
+            }
+            else
+            {
+                array = [[NSMutableArray alloc] initWithCapacity:10];
+                currentDate = task.date;
+                [taskDictionary setObject:array forKey:task.date];
+                [keyArray addObject:task.date];
+            }
+            [array addObject:task];
+        }
+    }
+}
+
+- (void) rebuildData
+{
+    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    TDSession *session = [delegate session];
+    User *user = [session user];
+    
+    NSManagedObjectContext *moc = [delegate managedObjectContext];
+    
+    NSEntityDescription *description = [NSEntityDescription entityForName:@"Task"
+                                                   inManagedObjectContext:moc];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(userId = %@)",
+                              user.userId];
+
+    NSMutableArray *descriptors = [[NSMutableArray alloc] initWithCapacity:2];
+    if([sortOrder.text isEqualToString:@"Priority"])
+    {
+        NSSortDescriptor *descriptor = nil;
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
+        [descriptors addObject:descriptor];
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+        [descriptors addObject:descriptor];
+    }
+    else
+    {
+        NSSortDescriptor *descriptor = nil;
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+        [descriptors addObject:descriptor];
+        descriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
+        [descriptors addObject:descriptor];
+    }
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:description];
+    [request setPredicate:predicate];
+    [request setSortDescriptors:descriptors];
+    
+    NSError *error = nil;
+    taskResults = [moc executeFetchRequest:request error:&error];
+    if([taskResults count] > 0)
+    {
+        NSLog(@"array = %@",taskResults);
+    }
+    
+    // build dictionary from results
+    [self buildDictionary];
+}
+
+- (void) refreshContents
+{
+    [self rebuildData];
+    [tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,6 +139,7 @@
                                                                      target:self
                                                                      action:@selector(addTask:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
+    [self refreshContents];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,25 +174,61 @@
     {
         sortOrder.text = @"Date";
     }
+    [self refreshContents];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    id obj = [keyArray objectAtIndex:section];
+    NSArray *array = [taskDictionary objectForKey:obj];
+    return [array count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return [keyArray count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    static NSString *identifierForCell = @"TDCell";
+    
+    TDCell *cell = (TDCell *)[tv dequeueReusableCellWithIdentifier:identifierForCell];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ToDoCell" owner:nil options:nil];
+        for (id eachObject in nib) {
+            if ([eachObject isKindOfClass:[UITableViewCell class]]) {
+                cell = eachObject;
+                break;
+            }
+        }
+    }
+    
+    NSUInteger kindex = [indexPath indexAtPosition:0];
+    NSUInteger dindex = [indexPath indexAtPosition:1];
+    id key = [keyArray objectAtIndex:kindex];
+    NSArray *detailArray = [taskDictionary objectForKey:key];
+    Task *task = [detailArray objectAtIndex:dindex];
+    
+    cell.task = task;
+    [cell resetState];
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    id key = [keyArray objectAtIndex:section];
+    NSString *returnValue = nil;
+    
+    returnValue = [NSString stringWithFormat:@"%@",key];
+    
+    return returnValue;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
 }
 @end

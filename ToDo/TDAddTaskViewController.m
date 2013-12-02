@@ -62,6 +62,7 @@
         task.textDescription = descriptionText.text;
         task.date = [datePicker date];
         task.priority = [NSNumber numberWithInt:[priority.text intValue]];
+        task.userId = [[[delegate session] user] userId];
         [delegate saveContext];
         
         [self dismissViewControllerAnimated:YES completion:^{}];

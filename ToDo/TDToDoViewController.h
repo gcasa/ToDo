@@ -13,7 +13,9 @@
     IBOutlet UITableView *tableView;
     IBOutlet UILabel *sortOrder;
     
-    NSMutableArray *taskArray;
+    NSMutableDictionary *taskDictionary;
+    NSArray *taskResults;
+    NSMutableArray *keyArray;
 }
 
 - (IBAction)logoutPressed:(id)sender;
