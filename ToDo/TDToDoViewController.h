@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TDToDoViewController : UIViewController
+{
+    IBOutlet UITableView *tableView;
+    NSMutableArray *taskArray;
+}
 
 @end

@@ -27,12 +27,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Add"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(addTask:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addTask:(id)sender
+{
+    
 }
 
 @end

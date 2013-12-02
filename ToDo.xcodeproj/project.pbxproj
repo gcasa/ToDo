@@ -33,6 +33,13 @@
 		148F308D184CA3F200CF3FF6 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F308C184CA3F200CF3FF6 /* NSString+SHA1.m */; };
 		148F3091184CC18A00CF3FF6 /* TDToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148F308F184CC18A00CF3FF6 /* TDToDoViewController.m */; };
 		148F3092184CC18A00CF3FF6 /* TDToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148F3090184CC18A00CF3FF6 /* TDToDoViewController.xib */; };
+		148F309B184CD88F00CF3FF6 /* ToDoIcon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3093184CD48E00CF3FF6 /* ToDoIcon120x120.png */; };
+		148F309C184CD89100CF3FF6 /* ToDoIcon76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3094184CD4E700CF3FF6 /* ToDoIcon76x76.png */; };
+		148F309D184CD89400CF3FF6 /* ToDoIcon152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3095184CD55500CF3FF6 /* ToDoIcon152x152.png */; };
+		148F309E184CD89600CF3FF6 /* ToDoListsDefault640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3096184CD5FB00CF3FF6 /* ToDoListsDefault640x960.png */; };
+		148F309F184CD89900CF3FF6 /* ToDoListsDefault640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3097184CD63D00CF3FF6 /* ToDoListsDefault640x1136.png */; };
+		148F30A0184CD89C00CF3FF6 /* ToDoListsDefault768x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3098184CD68F00CF3FF6 /* ToDoListsDefault768x1024.png */; };
+		148F30A1184CD89E00CF3FF6 /* ToDoListsDefault1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 148F3099184CD6BC00CF3FF6 /* ToDoListsDefault1536x2048.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,8 +343,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				145ACBE2184C88BF00EBAEA8 /* InfoPlist.strings in Resources */,
+				148F309B184CD88F00CF3FF6 /* ToDoIcon120x120.png in Resources */,
+				148F309F184CD89900CF3FF6 /* ToDoListsDefault640x1136.png in Resources */,
+				148F30A1184CD89E00CF3FF6 /* ToDoListsDefault1536x2048.png in Resources */,
+				148F309C184CD89100CF3FF6 /* ToDoIcon76x76.png in Resources */,
+				148F30A0184CD89C00CF3FF6 /* ToDoListsDefault768x1024.png in Resources */,
 				148F3082184C9F6000CF3FF6 /* TDRegisterViewController.xib in Resources */,
 				148F3092184CC18A00CF3FF6 /* TDToDoViewController.xib in Resources */,
+				148F309E184CD89600CF3FF6 /* ToDoListsDefault640x960.png in Resources */,
+				148F309D184CD89400CF3FF6 /* ToDoIcon152x152.png in Resources */,
 				145ACBED184C88BF00EBAEA8 /* Images.xcassets in Resources */,
 				148F307C184C978200CF3FF6 /* TDLoginViewController.xib in Resources */,
 			);
