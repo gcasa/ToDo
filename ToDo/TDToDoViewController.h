@@ -11,9 +11,13 @@
 @interface TDToDoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *tableView;
+    IBOutlet UILabel *sortOrder;
+    
     NSMutableArray *taskArray;
 }
 
 - (IBAction)logoutPressed:(id)sender;
+- (IBAction)addTask:(id)sender;
+- (IBAction)changeSort:(id)sender;
 
 @end
