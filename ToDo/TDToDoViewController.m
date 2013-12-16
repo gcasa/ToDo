@@ -155,9 +155,13 @@
     if(order != nil)
     {
         sortOrder.text = order;
-        [self performSelector:@selector(changeSort:)
-                   withObject:nil
-                   afterDelay:(NSTimeInterval)1];
+    }
+    else
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:sortOrder.text
+                     forKey:@"sortOrder"];
+        [defaults synchronize];
     }
     
     [self refreshContents];
