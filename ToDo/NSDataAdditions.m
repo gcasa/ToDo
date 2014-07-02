@@ -92,7 +92,7 @@
 - (NSData *) sha1DigestFromData
 {		
 	unsigned char hashBytes[CC_SHA1_DIGEST_LENGTH];
-	CC_SHA1([self bytes], [self length], hashBytes);
+	CC_SHA1([self bytes], (CC_LONG)[self length], hashBytes);
 	NSData *encodedData = [NSData dataWithBytes:hashBytes length:CC_SHA1_DIGEST_LENGTH];
 	return encodedData;
 }
