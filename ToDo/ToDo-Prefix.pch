@@ -14,7 +14,9 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
-
     #import <MagicalRecord/CoreData+MagicalRecord.h>
+    #import <MagicalRecord/NSManagedObject+MagicalRecord.h>
+    #import <MagicalRecord/NSManagedObject+MagicalFinders.h>
+#import <NSManagedObject+MagicalRequests.h>
     #import <PXAlertView/PXAlertView.h>
 #endif

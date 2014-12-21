@@ -34,23 +34,22 @@
 - (IBAction)closeButton:(id)sender
 {
     NSLog(@"Close");
-    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *moc = [delegate managedObjectContext];
-    [moc deleteObject:self.task];
-
+    [self.task deleteInBackground];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TDTaskRemovedNotification"
                                                         object:nil];
 }
 
 - (IBAction)doneButton:(id)sender
 {
-    if([self.task.completed boolValue])
+    if([[self.task objectForKey:@"completed"] boolValue])
     {
-        self.task.completed = [NSNumber numberWithBool:NO];
+        [self.task setObject:[NSNumber numberWithBool:NO]
+                      forKey:@"completed"];
     }
     else
     {
-        self.task.completed = [NSNumber numberWithBool:YES];
+        [self.task setObject:[NSNumber numberWithBool:YES]
+                      forKey:@"completed"];
     }
     [self resetState];
 
@@ -60,7 +59,7 @@
 
 - (void)resetState
 {
-    if([self.task.completed boolValue])
+    if([[self.task objectForKey:@"completed"] boolValue])
     {
         UIImage *image = [UIImage imageNamed:@"CheckmarkOff.jpg"];
         [self.doneButton setImage:image
@@ -73,6 +72,6 @@
                          forState:UIControlStateNormal];
     }
     
-    self.detailText.text = self.task.detail;
+    self.detailText.text = [self.task objectForKey:@"detail"];
 }
 @end

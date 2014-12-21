@@ -70,16 +70,16 @@
         for(Task *task in taskResults)
         {
             NSMutableArray *array = nil;
-            if([currentDate isEqualToDate:task.date])
+            if([currentDate isEqualToDate:task.createdAt])
             {
-                array = [taskDictionary objectForKey:task.date];
+                array = [taskDictionary objectForKey:task.createdAt];
             }
             else
             {
                 array = [[NSMutableArray alloc] initWithCapacity:10];
-                currentDate = task.date;
-                [taskDictionary setObject:array forKey:task.date];
-                [keyArray addObject:task.date];
+                currentDate = task.createdAt;
+                [taskDictionary setObject:array forKey:task.createdAt];
+                [keyArray addObject:task.createdAt];
             }
             [array addObject:task];
         }
@@ -88,17 +88,8 @@
 
 - (void) rebuildData
 {
-    TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    TDSession *session = [delegate session];
-    User *user = [session user];
+    User *user = (User *)[PFUser currentUser];
     
-    NSManagedObjectContext *moc = [NSManagedObjectContext MR_defaultContext];
-    
-    NSEntityDescription *description = [NSEntityDescription entityForName:@"Task"
-                                                   inManagedObjectContext:moc];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(userId = %@)",
-                              user.userId];
-
     NSMutableArray *descriptors = [[NSMutableArray alloc] initWithCapacity:2];
     if([sortOrder.text isEqualToString:@"Priority"])
     {
@@ -117,13 +108,12 @@
         [descriptors addObject:descriptor];
     }
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:description];
-    [request setPredicate:predicate];
-    [request setSortDescriptors:descriptors];
-    
-    NSError *error = nil;
-    taskResults = [moc executeFetchRequest:request error:&error];
+    PFQuery *query = [PFQuery queryWithClassName:@"Task"];
+    [query whereKey:@"user" equalTo:user];
+    [query orderBySortDescriptors:descriptors];
+
+    taskResults = [query findObjects];
+    [PFObject pinAllInBackground:taskResults];
     
     // build dictionary from results
     [self buildDictionary];

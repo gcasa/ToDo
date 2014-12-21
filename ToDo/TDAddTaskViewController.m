@@ -10,6 +10,7 @@
 #import "Task.h"
 #import "TDAppDelegate.h"
 #import "NSDate+Utilities.h"
+#import <MagicalRecord/NSManagedObject+MagicalRecord.h>
 
 @interface TDAddTaskViewController ()
 
@@ -51,12 +52,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dismissWithTask:(Task *)task
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TDTaskAddedNotification" object:task];
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
 - (IBAction)donePressed:(id)sender
 {
     if([taskName.text isEqualToString:@""] == NO &&
        [descriptionText.text isEqualToString:@""] == NO)
     {
-        TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         Task *task = nil;
         
         if(self.currentTask)
@@ -65,8 +71,6 @@
         }
         else
         {
-            NSManagedObjectContext *moc = [delegate managedObjectContext];
-            NSEntityDescription *description = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
             task = [[Task alloc] init];
         }
         task.detail = taskName.text;
@@ -74,11 +78,10 @@
         task.date = [[datePicker date] dateWithOutTime];
         task.priority = [NSNumber numberWithInt:[priority.text intValue]];
         task.user = [User currentUser];
-        [delegate saveContext];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"TDTaskAddedNotification" object:task];
-        
-        [self dismissViewControllerAnimated:YES completion:^{}];
+        task.completed = [NSNumber numberWithBool:NO];
+        [task saveEventually:^(BOOL succeeded, NSError *error) {
+            [self performSelectorInBackground:@selector(dismissWithTask:) withObject:task];
+        }];
     }
     else
     {
