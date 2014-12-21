@@ -16,6 +16,8 @@
     IBOutlet UITextField *userId;
     IBOutlet UITextField *password;
     IBOutlet UITextField *confirmPassword;
+    IBOutlet UITextField *phoneNumber;
+    IBOutlet UITextField *email;
     
     IBOutlet UIButton *registerUser;
 }

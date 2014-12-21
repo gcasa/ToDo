@@ -92,7 +92,7 @@
     TDSession *session = [delegate session];
     User *user = [session user];
     
-    NSManagedObjectContext *moc = [delegate managedObjectContext];
+    NSManagedObjectContext *moc = [NSManagedObjectContext MR_defaultContext];
     
     NSEntityDescription *description = [NSEntityDescription entityForName:@"Task"
                                                    inManagedObjectContext:moc];

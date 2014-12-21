@@ -9,7 +9,7 @@
 #import "TDRegisterViewController.h"
 #import "TDAppDelegate.h"
 #import "NSString+SHA1.h"
-#import "User.h"
+#import <Parse/Parse.h>
 
 @interface TDRegisterViewController ()
 
@@ -41,6 +41,8 @@
 - (IBAction)registerUser:(id)sender
 {
     TDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    
+    /*
     NSManagedObjectContext *moc = [delegate managedObjectContext];
     NSEntityDescription *description = [NSEntityDescription entityForName:@"User"
                                                    inManagedObjectContext:moc];
@@ -52,6 +54,11 @@
     
     NSError *error = nil;
     NSArray *array = [moc executeFetchRequest:request error:&error];
+     */
+    PFQuery *query = [User query];
+    [query whereKey:@"email" equalTo:email.text];
+    // [
+    NSArray *array = nil;
     if([array count] > 0)
     {
         UIAlertView *registerFailedView = [[UIAlertView alloc] initWithTitle:@"User Already Exists" message:@"User already exists, please choose another username." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -64,21 +71,22 @@
            [password.text isEqualToString:@""] == NO &&
            [firstName.text isEqualToString:@""] == NO &&
            [lastName.text isEqualToString:@""] == NO &&
-           [confirmPassword.text isEqualToString:@""] == NO)
+           [confirmPassword.text isEqualToString:@""] == NO &&
+           [email.text isEqualToString:@""] == NO)
         {
             if([confirmPassword.text isEqualToString:password.text])
             {
-                User *newUser = [[User alloc] initWithEntity:description
-                              insertIntoManagedObjectContext:moc];
-                
-                newUser.userId = userId.text;
-                newUser.firstName = firstName.text;
-                newUser.middleName = middleName.text;
-                newUser.lastName = lastName.text;
-                newUser.password = [password.text stringByHashingStringWithSHA1];
-                
-                [delegate saveContext];
-                [delegate.navigationController popViewControllerAnimated:YES];
+
+                User *user = [User new];
+                user.username = userId.text;
+                user.password = [password.text stringByHashingStringWithSHA1];
+                user.firstName = firstName.text;
+                user.lastName = lastName.text;
+                user.middleName = middleName.text;
+                user.email = email.text;
+                [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    [delegate.navigationController popViewControllerAnimated:YES];
+                }];
             }
             else
             {

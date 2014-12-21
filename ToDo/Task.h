@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <Parse/Parse.h>
 
-
-@interface Task : NSManagedObject
+@interface Task : PFObject <PFSubclassing>
 
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * priority;
 @property (nonatomic, retain) NSString * textDescription;
 @property (nonatomic, retain) NSString * detail;
 @property (nonatomic, retain) NSNumber * completed;
-@property (nonatomic, retain) NSString * userId;
+@property (nonatomic, retain) PFUser * user;
 
 @end

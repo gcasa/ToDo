@@ -7,7 +7,7 @@
 //
 
 #import "Task.h"
-
+#import <Parse/PFObject+Subclass.h>
 
 @implementation Task
 
@@ -16,6 +16,11 @@
 @dynamic textDescription;
 @dynamic detail;
 @dynamic completed;
-@dynamic userId;
+@dynamic user;
+
++ (NSString *)parseClassName
+{
+    return NSStringFromClass(self);
+}
 
 @end

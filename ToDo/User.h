@@ -2,20 +2,18 @@
 //  User.h
 //  ToDo
 //
-//  Created by Gregory Casamento on 12/2/13.
-//  Copyright (c) 2013 Gregory Casamento. All rights reserved.
+//  Created by Gregory Casamento on 7/2/14.
+//  Copyright (c) 2014 Gregory Casamento. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import <Parse/Parse.h>
 
+@interface User : PFUser <PFSubclassing>
 
-@interface User : NSManagedObject
-
-@property (nonatomic, retain) NSString * firstName;
-@property (nonatomic, retain) NSString * middleName;
-@property (nonatomic, retain) NSString * lastName;
-@property (nonatomic, retain) NSString * userId;
-@property (nonatomic, retain) NSString * password;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *middleName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *userId;
 
 @end

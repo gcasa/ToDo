@@ -67,14 +67,13 @@
         {
             NSManagedObjectContext *moc = [delegate managedObjectContext];
             NSEntityDescription *description = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
-            task = [[Task alloc] initWithEntity:description
-                 insertIntoManagedObjectContext:moc];
+            task = [[Task alloc] init];
         }
         task.detail = taskName.text;
         task.textDescription = descriptionText.text;
         task.date = [[datePicker date] dateWithOutTime];
         task.priority = [NSNumber numberWithInt:[priority.text intValue]];
-        task.userId = [[[delegate session] user] userId];
+        task.user = [User currentUser];
         [delegate saveContext];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TDTaskAddedNotification" object:task];
